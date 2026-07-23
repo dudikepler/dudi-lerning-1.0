@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+worker/node_modules
 /.pnp
 .pnp.*
 .yarn/*
@@ -19,6 +20,10 @@
 
 # production
 /build
+worker/dist
+
+# WhatsApp session credentials -- never commit these
+worker/data/
 
 # misc
 .DS_Store

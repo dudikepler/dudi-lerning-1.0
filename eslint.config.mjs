@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Standalone Node service with its own package.json/tooling.
+    "worker/**",
   ]),
 ]);
 
