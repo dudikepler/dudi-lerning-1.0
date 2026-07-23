@@ -29,3 +29,38 @@ body {
   background-clip: text;
   color: transparent;
 }
+
+/*
+ * Independent palette for the therapist-recommendations section (/therapists,
+ * /login, /register, /dashboard, /admin). Scoped to [data-scope="therapy"] so
+ * it never touches the personal-brand theme used by the rest of the site.
+ */
+[data-scope="therapy"] {
+  --tp-bg: #f6f4ee;
+  --tp-surface: #ffffff;
+  --tp-border: #e1ddd0;
+  --tp-text: #262521;
+  --tp-muted: #6b6a63;
+  --tp-primary: #3f6d5e;
+  --tp-primary-soft: #e6efe9;
+  --tp-accent: #b3742c;
+  --tp-danger: #b3452c;
+
+  background: var(--tp-bg);
+  color: var(--tp-text);
+  min-height: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-scope="therapy"] {
+    --tp-bg: #14181a;
+    --tp-surface: #1c2124;
+    --tp-border: #2c3237;
+    --tp-text: #eef0ea;
+    --tp-muted: #a2a8a3;
+    --tp-primary: #7fb69f;
+    --tp-primary-soft: #223330;
+    --tp-accent: #d69a56;
+    --tp-danger: #e08469;
+  }
+}
