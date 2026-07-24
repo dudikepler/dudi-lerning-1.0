@@ -22,15 +22,30 @@ export function Clients() {
           <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
             {clients.map((client) => (
               <div
-                key={client.domain}
-                className="group flex aspect-[3/2] items-center justify-center rounded-2xl border border-gold/20 bg-panel p-6 transition hover:border-gold hover:shadow-[0_0_30px_-10px_rgba(212,175,55,0.6)]"
+                key={client.name}
+                className={`group relative flex aspect-[3/2] items-center justify-center rounded-2xl border p-6 transition ${
+                  client.needsReview
+                    ? "border-dashed border-gold/30"
+                    : "border-gold/20 hover:border-gold hover:shadow-[0_0_30px_-10px_rgba(212,175,55,0.6)]"
+                } bg-panel`}
               >
-                <img
-                  src={`https://logo.clearbit.com/${client.domain}`}
-                  alt={client.name}
-                  className="max-h-12 w-full object-contain grayscale transition group-hover:grayscale-0"
-                  loading="lazy"
-                />
+                {client.needsReview && (
+                  <span className="absolute -top-2 -right-2 rounded-full bg-gold px-2 py-0.5 text-[10px] font-semibold text-black">
+                    לבדוק
+                  </span>
+                )}
+                {client.domain ? (
+                  <img
+                    src={`https://logo.clearbit.com/${client.domain}`}
+                    alt={client.name}
+                    className="max-h-12 w-full object-contain grayscale transition group-hover:grayscale-0"
+                    loading="lazy"
+                  />
+                ) : (
+                  <span className="px-2 text-center text-sm font-medium text-foreground/70">
+                    {client.name}
+                  </span>
+                )}
               </div>
             ))}
           </div>
